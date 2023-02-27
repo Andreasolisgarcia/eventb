@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event = Event.find(params[:id])
+    #@event = set_event another way to call 
   end
 
   # GET /events/new

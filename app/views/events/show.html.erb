@@ -8,3 +8,12 @@
 
   <%= button_to "Destroy this event", @event, method: :delete %>
 </div>
+
+<div id="events">
+  <% user_ids = @event.users.pluck(:id) %>
+  <% user_ids.each_with_index do |user_id, index| %>
+    <% user = User.find(user_id) %>
+    <p><%= index + 1 %>. <%= user.first_name %></p>
+    <p><%= link_to "Profile", user_path(user) %></p>
+  <% end %>
+</div>
