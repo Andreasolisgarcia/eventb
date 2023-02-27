@@ -5,10 +5,26 @@
 <div>
   <%= link_to "Edit this event", edit_event_path(@event) %> |
   <%= link_to "Back to events", events_path %>
+  <%= link_to "Participate", events_path %>
 
   <%= button_to "Destroy this event", @event, method: :delete %>
 </div>
+<br>
+<% if user_signed_in? %>
+  <% attendance = current_user.attendances.find_by(event_id: @event.id) %>
+  <% if attendance %>
+  <%= button_to "Cancel Attendance", [@event, attendance], method: :delete, class: "btn btn-primary" %>
+  <% else %>
+    <%= form_with(model: [@event, Attendance.new], local: true) do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit "Attend", class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to "Sign in to Attend", new_user_session_path, class: "btn btn-primary" %>
+<% end %>
 
+<br>
 <div id="events">
   <% user_ids = @event.users.pluck(:id) %>
   <% user_ids.each_with_index do |user_id, index| %>
