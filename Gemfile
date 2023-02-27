@@ -73,3 +73,4 @@ end
 
 gem "faker"
 gem "devise"
+gem 'dotenv-rails'
