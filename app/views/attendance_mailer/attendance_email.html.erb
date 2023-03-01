@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.first_name %> tu viens de t'inscrire è l'évenement suivant :</h1>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @event.location %>
+  </p>
+
+  <p>
+    <strong>Start date:</strong>
+    <%= @event.start_date %>
+  </p>
+
+  <p>
+    <strong>Duration:</strong>
+    <%= @event.duration %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @event.price %>
+  </p>
+
+  <p>
+  <strong>Host:</strong>
+  <%= @host.first_name %> <%= @host.last_name %>
+  </p>
+
+  <p>
+  <strong>Attending :</strong>
+  <%= @event.users.count %>
+  for now
+  </p>
+  
+  Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    
+    <p> À très vite sur monsite.fr !
+  </body>
+</html>

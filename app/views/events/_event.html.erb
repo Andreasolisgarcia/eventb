@@ -29,4 +29,16 @@
     <%= event.price %>
   </p>
 
+  <p>
+  <strong>Host:</strong>
+  <% host_name = event.user.first_name + " " + event.user.last_name %>
+  <%= link_to  host_name , user_path(event.user) %>
+  </p>
+
+  <p>
+  <strong>Attending :</strong>
+  <% users = event.users %>
+  <%= users.count %>
+  </p>
+
 </div>

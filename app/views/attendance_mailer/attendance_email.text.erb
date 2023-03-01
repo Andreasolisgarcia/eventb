@@ -1,0 +1,23 @@
+Salut <%= @user.first_name %> tu viens de t'inscrire è l'évenement suivant :
+===========================================================================
+Salut <%= @user.first_name %> tu viens de t'inscrire è l'évenement suivant :
+
+Title: <%= @event.title %>
+
+Description: <%= @event.description %>
+
+Location: <%= @event.location %>
+
+Start date:<%= @event.start_date %>
+
+Duration: <%= @event.duration %>
+
+Price: <%= @event.price %>
+
+Host: <%= @host.first_name %> <%= @host.last_name %>
+
+Attending : <%= @event.users.count %> for now
+
+Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+ 
+À très vite sur monsite.fr !
